@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 07.01.2025 21:34:56
+// Create Date: 07.01.2025 21:31:44
 // Design Name: 
-// Module Name: testbench
+// Module Name: half_adder
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,28 +20,10 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module testbench();
-reg a,b;
-wire s,c;
- 
-half_adder dut (a,b,c,s);
+module half_adder(a,b,c,s);
+input a,b;
+output s,c;
+xor l0(s,a,b);
+and l1(c,a,b);
 
-initial
-begin
-a=0;b=0;
-#10;
-a=0;b=1;
-#10;  
-a=1;b=0;
-#10;  
-a=1;b=1;
-#10;  
-end 
-initial
-begin
-
-#20;
-
-$finish();
-end   
 endmodule
